@@ -1,0 +1,19 @@
+---
+title: "About"
+---
+
+## About this site
+
+This site is a proof of concept that aims to become a reference for people wanting to perform common tasks in data science using R or Python.
+
+Site goals:
+
+* Learn how specific tasks are done as compared to their programming knowledge
+* Facilitate a transition from R to Python or from Python to R
+* Become a reference material
+
+## About the author(s)
+
+So far this is a work by [Carlos Cámara](https://carloscamara.es/en), Senior Research Software Engineer at the University of Warwick's [Centre for Interidisciplinary Methodologies](https://warwick.ac.uk/fac/cross_fac/cim/), but it's open to collaboration.
+
+

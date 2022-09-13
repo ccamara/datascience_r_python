@@ -1,0 +1,110 @@
+# Data exploration
+
+Now we have imported some data from a remote CSV file, but we want to know what has happened and what kind of data have we imported.
+
+```{r}
+#| output: false
+library(readr)
+
+# We are using read_csv() instead of read.csv()
+df_tv <-read_csv('data/raw/covid_data.csv')
+
+df_r <-read.csv('data/raw/covid_data.csv')
+```
+
+```{python}
+#| output: false
+import pandas as pd
+
+df_pd = pd.read_csv('data/raw/covid_data.csv')
+```
+
+## Check data type
+
+First thing we might want to see what data type have we created.
+
+::: panel-tabset
+
+## R
+```{r}
+#| label: type_r
+str(df_r)
+```
+
+## Tidyverse
+
+```{r}
+#| label: type_tv
+str(df_tv)
+```
+
+`read_csv()` does not create a data frame but a tibble. While they are very similar (tibbles can be used exactly as data frames), there are some differences. Refer to [this link](https://www.rstudio.com/blog/tibble-1-0-0/) for differences between both types.
+
+## Python
+
+```{python}
+#| label: type_py
+
+
+```
+
+## Pandas
+
+```{python}
+#| label: type_pd
+
+# type(df_pd)
+# Commenting out because it's failing
+```
+
+
+:::
+
+All of them are data frames.
+
+## View dataframe's fragments
+
+::: panel-tabset
+
+#### R
+```{r}
+# Explore first items of the data frame
+head(df_r, 5)
+
+# Explore last items
+tail(df_r, 5)
+```
+
+#### Tidyverse
+
+Actually, there's nothing special in the tidyverse to explore partials, but we are going to use the pipe operator `%>%` because it is likely that we will be using `head()` or `tail()` at the end of a chained process.
+
+```{r}
+#| message: false
+library(dplyr)
+
+# Explore first items of the data frame
+df_tv %>%
+    head(5)
+
+# Explore last items
+df_tv %>%
+    tail(5)
+
+```
+
+#### Python
+
+```{python}
+
+
+```
+#### Pandas
+
+```{python}
+df_pd.head()
+
+```
+
+
+:::

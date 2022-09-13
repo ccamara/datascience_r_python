@@ -1,0 +1,104 @@
+---
+title: "learning_r_python"
+code-line-numbers: true
+# cache: true
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+## Loading and writing data
+
+### Reading CSV data
+First thing we are doing to do is to read a CSV file and turn it into a dataframe which we are going to manipulate in the next steps.
+
+
+
+
+::: panel-tabset
+
+### R
+```{r load_r}
+
+df_r <-read.csv('data/raw/covid_data.csv')
+
+
+```
+
+### Tidyverse
+
+While we can use R's `read.csv()`  in the tidyverse, `{readr}` (which is a package within the tidyverse) has a similar function: [`read_csv()`](https://readr.tidyverse.org/reference/read_delim.html)[^readr_diffs]
+
+[^readr_diffs]: Refer to this answer from Stack Overflow for a description of the main comparisons between `read.csv()` and `read_csv()` 
+
+```{r}
+#| label: load_tidyverse 
+library(readr)
+
+# We are using read_csv() instead of read.csv()
+df_tv <-read_csv('data/raw/covid_data.csv')
+
+```
+### Python
+
+```{python}
+
+
+```
+
+
+### Pandas
+
+[`pandas`](https://pandas.pydata.org/) is a Python's library for data analysis and manipulation. The following sections will assume that we have already imported pandas beforehand.
+
+```{python}
+#| label: load_pandas
+# We need to import pandas to use 
+import pandas as pd
+
+df_pd = pd.read_csv('data/raw/covid_data.csv')
+
+```
+
+:::
+
+* Importing data from R and Pandas is straightforward: each language has specific functions for that. There're some minor differences, though
+    * read.csv() does not provide any output
+    * readr's read_csv function seems more verbose in terms of what has been imported, and provides useful information
+    * pd.read.csv() produces a warning
+* Base Python is way more complex
+* `pd.read.csv()` produces a suspicious warning: we'll need to explore what we have imported to see if it worked or not.
+
+## Write data 
+
+
+::: panel-tabset
+
+##### R
+```{r}
+
+```
+
+##### Tidyverse
+
+```{r}
+
+```
+
+##### Python
+
+```{python}
+
+
+```
+##### Pandas
+
+
+
+```{python}
+
+
+```
+
+:::

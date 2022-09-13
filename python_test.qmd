@@ -1,0 +1,11 @@
+```{.python}
+#| label: load_pandas
+# We need to import pandas to use 
+import pandas as pd
+
+dfpd = pd.read_csv('data/raw/covid_data.csv')
+
+dfpd.head()
+
+type(dfpd)
+```

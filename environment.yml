@@ -1,0 +1,7 @@
+name: datascience_r_python
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - nbformat

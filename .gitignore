@@ -1,0 +1,14 @@
+# Quarto-related
+_site/
+/.quarto/
+index_cache/
+
+# R-related files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+
+# OS Specific
+.DS_Store
