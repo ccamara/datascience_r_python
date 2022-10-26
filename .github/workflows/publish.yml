@@ -11,16 +11,44 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Cache packages
+        uses: actions/cache@v1
+        env:
+          RENV_PATHS_ROOT: ~/.local/share/renv
         with:
-          python-version: '3.8'
-          
-      - name: Install Jupyter
-        run:  python3 -m pip install jupyter
+          path: ${{ env.RENV_PATHS_ROOT }}
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+
+      - name: Restore packages
+        shell: Rscript {0}
+        run: |
+          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::restore()
+
+      # - name: Setup Python
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: '3.8'
+      
+      # - name: Install Jupyter
+      #   run:  python3 -m pip install jupyter
           
       - name: Check out repository
         uses: actions/checkout@v2
+        
+      - name: Setup Conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: datascience_r_python
+          environment-file: environment.yml
+          python-version: 3.8
+          auto-activate-base: false
+      - run: |
+          conda info
+          conda list
+          
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
