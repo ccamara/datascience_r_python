@@ -32,13 +32,13 @@ Deactivate virtual environment:
 conda deactivate
 ```
 
-Update virtual environment from environment.yml:
+Update virtual environment from `environment.yml`:
 
 ```bash
 conda env update -f environment.yml
 ```
 
-Recreate virtual environment from environment.yml:
+Recreate virtual environment from `environment.yml`:
 
 ```bash
 conda env create -f environment.yml
